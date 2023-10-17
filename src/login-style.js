@@ -23,6 +23,9 @@ export default css `
 .border-20{
     border-radius:20px;
 }
+.border-10{
+    border-radius:10px;
+}
 
 .bg-whiteTransparent{
     background-color: rgba(255,255,255,0.6)

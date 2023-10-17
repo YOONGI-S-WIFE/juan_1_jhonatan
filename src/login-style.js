@@ -20,6 +20,12 @@ export default css `
 .bottom-rounded {
     border-radius: 0 0 15px 15px; 
 }
+.border-left {
+    border-radius: 15px 5px 5px 15px; 
+}
+.border-right {
+    border-radius: 0px 15px 15px 0px; 
+}
 .border-20{
     border-radius:20px;
 }
@@ -33,5 +39,12 @@ export default css `
 
 .text-blue{
     color:#446D99;   
+}
+
+.text-big{
+    font-size:25px;
+}
+.num-big{
+    font-size:50px;
 }
 `

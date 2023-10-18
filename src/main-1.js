@@ -3,6 +3,130 @@ import loginStyle from "./login-style";
 import { MainPage2 } from "./main-2";
 
 export class MainPage extends LitElement {
+  
+  
+  constructor(){
+    super();
+  this.objetoUsuarios={
+    Usuarios:[
+        {
+        id:'1',
+        nombre:'Brayan',
+        numeroTel:'3214243125',
+        direccion:'Carrera 6',
+        estado: '1',
+        campaña:'Q-Vision'
+      },
+      {
+        id:'2',
+        nombre:'Hector',
+        numeroTel:'3214243125',
+        direccion:'Carrera 6',
+        estado: '2',
+        campaña:'Q-Vision'
+      },
+      {
+        id:'1',
+        nombre:'Juan',
+        numeroTel:'3214243125',
+        direccion:'Carrera 6',
+        estado: '1',
+        campaña:'Q-Vision'
+      },
+      {
+        id:'2',
+        nombre:'Laura',
+        numeroTel:'3214243125',
+        direccion:'Carrera 6',
+        estado: '1',
+        campaña:'Q-Vision'
+      },
+      {
+        id:'1',
+        nombre:'Mafe',
+        numeroTel:'3214243125',
+        direccion:'Carrera 6',
+        estado: '2',
+        campaña:'Q-Vision'
+      },
+      {
+        id:'2',
+        nombre:'Sebas',
+        numeroTel:'3214243125',
+        direccion:'Carrera 6',
+        estado: '2',
+        campaña:'Q-Vision'
+      }
+      ]
+    }
+
+
+
+    let usuariosConectados = 0;
+    for (let usuario of this.objetoUsuarios.Usuarios) {
+      if (usuario.estado === '1') {
+        usuariosConectados += 1;
+      }
+    }
+    
+    let usuariosAusentes = 0;
+    for (let usuario of this.objetoUsuarios.Usuarios) {
+      if (usuario.estado === '2') {
+        usuariosAusentes += 1;
+      }
+    }
+    
+
+      this.usuariosConectados=usuariosConectados;
+      this.usuariosAusentes=usuariosAusentes;
+      this.campañasActivas="";
+
+  }
+
+
+  static get properties(){
+    return{
+        usuariosConectados:{
+          type: String
+        },
+        usuariosAusentes:{
+          type: String
+        },
+        campañasActivas:{
+          type: String
+        },
+        objetoUsuarios:{
+          type:Object
+        }
+    }
+}
+
+
+
+  mostrarUsuarios(){
+    let divTable = this.shadowRoot.querySelector('#div-table')
+    divTable.innerHTML= `
+    <table class="w-100" style="border: 1px solid black">
+                <tr>
+                  <th class="">Id</th>
+                  <th class="">Nombre</th>
+                  <th class="">Numero de telefono</th>
+                  <th class="">Campaña</th>
+                </tr>
+
+                ${this.objetoUsuarios.Usuarios.map(
+                  (usuario) => html`
+                    <tr>
+                      <td class=" border border-dark border-1">${usuario.id}</td>
+                      <td class=" border border-dark border-1">${usuario.nombre}</td>
+                      <td class=" border border-dark border-1">${usuario.numeroTel}</td>
+                      <td class=" border border-dark border-1">${usuario.campaña}</td>
+                    </tr>
+                  `
+                )}
+              </table>
+    `
+  }
 
   ingresarCampañas() {
     const mainPage2 = document.createElement('main-2');
@@ -25,7 +149,7 @@ export class MainPage extends LitElement {
           <div>
             <div class="d-flex">
               
-              <button class="w-100 mt-5 p-3 text-big text-start border-10 border-0"><i class="fas fa-user mx-3"></i>Usuarios</button>
+              <button class="w-100 mt-5 p-3 text-big text-start border-10 border-0" @click=${(e)=>this.mostrarUsuarios()}><i class="fas fa-user mx-3"></i>Usuarios</button>
             </div>
 
             <div class="d-flex">
@@ -42,15 +166,15 @@ export class MainPage extends LitElement {
       <div class="w-75 bg-light d-flex flex-column m-3">
         <div class="d-flex justify-content-between m-3 h-25">
           <div class="container d-flex justify-content-center align-items-center h-100 w-100">
-            <div class="h-50 w-50 bg-icon container d-flex justify-content-center align-items-center border-left text-center num-big"><p class="text-white">40</p></div>
+            <div class="h-50 w-50 bg-icon container d-flex justify-content-center align-items-center border-left text-center num-big"><p class="text-white">${this.usuariosConectados}</p></div>
             <div class="h-50 w-50 container d-flex justify-content-center align-items-center border-right bg-input text-center text-big"><p class="text-white">Usuarios <br>conectados</p></div>
           </div>
           <div class="container d-flex justify-content-center align-items-center h-100 w-100">
-            <div class="h-50 w-50 bg-icon container d-flex justify-content-center align-items-center border-left text-center num-big"><p class="text-white">10</p></div>
+            <div class="h-50 w-50 bg-icon container d-flex justify-content-center align-items-center border-left text-center num-big"><p class="text-white">${this.usuariosAusentes}</p></div>
             <div class="h-50 w-50 text-center container d-flex justify-content-center align-items-center border-right bg-input text-center text-big"><p class="text-white">Usuarios <br>ausentes</p></div>
           </div>
           <div class="container d-flex justify-content-center align-items-center h-100 w-100">
-            <div class="h-50 w-50 bg-icon container d-flex justify-content-center align-items-center border-left text-center num-big"><p class="text-white">10</p></div>
+            <div class="h-50 w-50 bg-icon container d-flex justify-content-center align-items-center border-left text-center num-big"><p class="text-white">${this.campañasActivas}</p></div>
             <div class="h-50 w-50 container d-flex justify-content-center align-items-center border-right bg-input text-center text-big"><p class="text-white">Campañas <br>activas</p></div>
           </div>
         </div>
@@ -70,7 +194,9 @@ export class MainPage extends LitElement {
             <button class="border-10 p-2 text-big border-1">Avanzado</button>
             <button class="bg-icon text-white p-2 text-big border-10 float-end">Nuevo</button>
             </div>
-            <div class="bg-light mt-3 h-100 border border-dark border-20"></div>
+            <div class="bg-light mt-3 h-100 border border-dark border-20 p-3" id="div-table">
+              
+            </div>
           </div>
         </div>
       </div>

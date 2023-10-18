@@ -8,7 +8,10 @@ export class MyElement extends LitElement{
         super();
         this.saludo="Inicio de sesión";
         this.mensaje="";
+        this.recarga()
     }
+
+
     static get properties(){
         return{
             saludo:{
@@ -20,9 +23,19 @@ export class MyElement extends LitElement{
         }
     }
 
+    recarga(){
+        const credencialesGuardadas = JSON.parse(localStorage.getItem('credenciales'));
+        if(credencialesGuardadas!==null){
+            const mainPage = document.createElement('main-1');
+            document.body.innerHTML = ''; 
+            document.body.appendChild(mainPage);
+        }
+    }
+
     ingresarLogin(){
         let username = this.shadowRoot.querySelector('#username').value;
         let password = this.shadowRoot.querySelector('#password').value;
+        let remeber = this.shadowRoot.querySelector('#remember').checked;  
 
         if (username == null || username == undefined || username == '') {
             this.mensaje='Atención...campo nombre vacio';
@@ -34,12 +47,35 @@ export class MyElement extends LitElement{
             this.mostrarError()
             return false;
         }else{
-            const mainPage = document.createElement('main-1');
-            document.body.innerHTML = ''; 
-            document.body.appendChild(mainPage);
+
+            if(remeber){
+                let credenciales={
+                    nombre:username, 
+                    contraseña:password}
+
+                localStorage.setItem('credenciales',JSON.stringify(credenciales)); 
+                const credencialesGuardadas = JSON.parse(localStorage.getItem('credenciales'));
+
+                let nombreLocal = credencialesGuardadas.nombre;
+                let passwordLocal = credencialesGuardadas.contraseña;
+
+                console.log(nombreLocal, passwordLocal); 
+  
+                console.log(credencialesGuardadas)          
+            
+                const mainPage = document.createElement('main-1');
+                document.body.innerHTML = ''; 
+                document.body.appendChild(mainPage);
+            }else{
+                const mainPage = document.createElement('main-1');
+                document.body.innerHTML = ''; 
+                document.body.appendChild(mainPage);
+            }
+
         }
         
     }
+
 
     
     mostrarError(){

@@ -25,12 +25,12 @@ export class MyElement extends LitElement{
         let password = this.shadowRoot.querySelector('#password').value;
 
         if (username == null || username == undefined || username == '') {
-            this.mensaje='atencion... campo nombre vacio';
+            this.mensaje='Atención...campo nombre vacio';
             this.mostrarError()
             return false;
         } 
         else if (password == null || password == undefined || password == '') {
-            this.mensaje='atencion... campo contraseña vacio';
+            this.mensaje='Atención...campo contraseña vacio';
             this.mostrarError()
             return false;
         }else{
@@ -43,7 +43,7 @@ export class MyElement extends LitElement{
 
     
     mostrarError(){
-        return html `<div>${this.mensaje}</div>`
+        return html `<div class="position-absolute bottom-0 start-50 translate-middle z-index-1">${this.mensaje}</div>`
     }
 
     static get styles(){

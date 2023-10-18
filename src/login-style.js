@@ -8,12 +8,14 @@ export default css `
     z-index: 1;
 }
 .bg-input{
-    background-color:#446D99;
+    background-color:#0091B8;
 }
 .bg-icon{
-    background-color:#00264D;
+    background-color:#00556C;
 }
-
+.bg-pink{
+    background-color:#FFF9FF;
+}
 .placeholder-white::placeholder {
     color: white;
 }
@@ -37,6 +39,10 @@ export default css `
     background-color: rgba(255,255,255,0.6)
 }
 
+.bg-grayWhite{
+    background-color:#D6D7D9;
+}
+
 .text-blue{
     color:#446D99;   
 }
@@ -46,5 +52,10 @@ export default css `
 }
 .num-big{
     font-size:50px;
+}
+
+.shadow-inset{
+    border: 1px solid #ccc; 
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
 }
 `

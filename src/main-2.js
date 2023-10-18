@@ -1,14 +1,9 @@
 import { LitElement, html } from "lit-element";
 import loginStyle from "./login-style";
-import { MainPage2 } from "./main-2";
 
-export class MainPage extends LitElement {
+export class MainPage2 extends LitElement {
 
-  ingresarCampañas() {
-    const mainPage2 = document.createElement('main-2');
-    document.body.innerHTML = ''; 
-    document.body.appendChild(mainPage2);
-  }
+
 
     static get styles(){
         return[loginStyle]
@@ -30,7 +25,7 @@ export class MainPage extends LitElement {
 
             <div class="d-flex">
               
-              <button class="w-100 mt-3 p-3 text-big text-start border-10 border-0" @click=${(e)=>this.ingresarCampañas()}><i class="fas fa-user mx-3"></i>Campañas</button>
+              <button class="w-100 mt-3 p-3 text-big text-start border-10 border-0"><i class="fas fa-user mx-3"></i>Campañas</button>
             </div>
               
             <div class="d-flex">
@@ -42,15 +37,15 @@ export class MainPage extends LitElement {
       <div class="w-75 bg-light d-flex flex-column m-3">
         <div class="d-flex justify-content-between m-3 h-25">
           <div class="container d-flex justify-content-center align-items-center h-100 w-100">
-            <div class="h-50 w-50 bg-icon container d-flex justify-content-center align-items-center border-left text-center num-big"><p class="text-white">40</p></div>
-            <div class="h-50 w-50 container d-flex justify-content-center align-items-center border-right bg-input text-center text-big"><p class="text-white">Usuarios <br>conectados</p></div>
+            <div class="h-50 w-50 bg-icon container d-flex justify-content-center align-items-center border-left text-center num-big"><p class="text-white">10 m</p></div>
+            <div class="h-50 w-50 container d-flex justify-content-center align-items-center border-right bg-input text-center text-big"><p class="text-white">Tiempo <br>llamadas</p></div>
           </div>
           <div class="container d-flex justify-content-center align-items-center h-100 w-100">
-            <div class="h-50 w-50 bg-icon container d-flex justify-content-center align-items-center border-left text-center num-big"><p class="text-white">10</p></div>
-            <div class="h-50 w-50 text-center container d-flex justify-content-center align-items-center border-right bg-input text-center text-big"><p class="text-white">Usuarios <br>ausentes</p></div>
+            <div class="h-50 w-50 bg-icon container d-flex justify-content-center align-items-center border-left text-center num-big"><p class="text-white">10 m</p></div>
+            <div class="h-50 w-50 text-center container d-flex justify-content-center align-items-center border-right bg-input text-center text-big"><p class="text-white">Tiempo <br>llamada actual</p></div>
           </div>
           <div class="container d-flex justify-content-center align-items-center h-100 w-100">
-            <div class="h-50 w-50 bg-icon container d-flex justify-content-center align-items-center border-left text-center num-big"><p class="text-white">10</p></div>
+            <div class="h-50 w-50 bg-icon container d-flex justify-content-center align-items-center border-left text-center text-big"><p class="text-white">campaña 1</p></div>
             <div class="h-50 w-50 container d-flex justify-content-center align-items-center border-right bg-input text-center text-big"><p class="text-white">Campañas <br>activas</p></div>
           </div>
         </div>
@@ -66,11 +61,17 @@ export class MainPage extends LitElement {
           </div>
           <div class="w-75 bg-light d-flex flex-column mx-3">
             <div>
-            <button class="border-10 p-2 text-big border-1">Básico</button>
-            <button class="border-10 p-2 text-big border-1">Avanzado</button>
-            <button class="bg-icon text-white p-2 text-big border-10 float-end">Nuevo</button>
+            <button class="border-10 p-2 text-big border-1">Datos de llamada</button>
+            <button class="bg-icon text-white p-2 text-big border-10 float-end px-5">10:00:00 <i class="fa-solid fa-clock fa-spin"></i></button>
             </div>
-            <div class="bg-light mt-3 h-100 border border-dark border-20"></div>
+            <div class="bg-light mt-3 h-100 border border-dark border-20 d-flex flex-column">
+            <div class="h-75 m-3 border-dark border">
+                
+            </div>
+            <div class="h-25 m-3 border-dark border">
+                
+            </div>
+            </div>
           </div>
         </div>
       </div>
@@ -79,4 +80,4 @@ export class MainPage extends LitElement {
   }
 }
 
-customElements.define('main-1', MainPage);
+customElements.define('main-2', MainPage2);

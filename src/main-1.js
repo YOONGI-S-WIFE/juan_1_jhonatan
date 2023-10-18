@@ -80,6 +80,7 @@ export class MainPage extends LitElement {
       this.usuariosConectados=usuariosConectados;
       this.usuariosAusentes=usuariosAusentes;
       this.campañasActivas="";
+      this.hola=""
 
   }
 
@@ -97,35 +98,38 @@ export class MainPage extends LitElement {
         },
         objetoUsuarios:{
           type:Object
+        },
+        hola:{
+          type:String
         }
     }
 }
 
 
 
-  mostrarUsuarios(){
-    let divTable = this.shadowRoot.querySelector('#div-table')
-    divTable.innerHTML= `
-    <table class="w-100" style="border: 1px solid black">
-                <tr>
-                  <th class="">Id</th>
-                  <th class="">Nombre</th>
-                  <th class="">Numero de telefono</th>
-                  <th class="">Campaña</th>
-                </tr>
-
-                ${this.objetoUsuarios.Usuarios.map(
-                  (usuario) => html`
-                    <tr>
-                      <td class=" border border-dark border-1">${usuario.id}</td>
-                      <td class=" border border-dark border-1">${usuario.nombre}</td>
-                      <td class=" border border-dark border-1">${usuario.numeroTel}</td>
-                      <td class=" border border-dark border-1">${usuario.campaña}</td>
-                    </tr>
-                  `
-                )}
-              </table>
-    `
+  mostrarUsuarios(y){
+    if(y==1){
+      this.hola= html`<table class="w-100" style="border: 1px solid black">
+      <tr>
+        <th class="">Id</th>
+        <th class="">Nombre</th>
+        <th class="">Numero de telefono</th>
+        <th class="">Campaña</th>
+      </tr>
+      ${this.objetoUsuarios.Usuarios.map(
+        (usuario)=> html`
+        <tr>
+          <td>${usuario.id}</td>
+          <td>${usuario.nombre}</td>
+          <td>${usuario.numeroTel}</td>
+          <td>${usuario.campaña}</td>
+        </tr>
+        `
+      )}
+    </table>`
+    }
+    return this.hola
+    
   }
 
   ingresarCampañas() {
@@ -149,7 +153,7 @@ export class MainPage extends LitElement {
           <div>
             <div class="d-flex">
               
-              <button class="w-100 mt-5 p-3 text-big text-start border-10 border-0" @click=${(e)=>this.mostrarUsuarios()}><i class="fas fa-user mx-3"></i>Usuarios</button>
+              <button class="w-100 mt-5 p-3 text-big text-start border-10 border-0" @click=${(e)=>this.mostrarUsuarios(1)}><i class="fas fa-user mx-3"></i>Usuarios</button>
             </div>
 
             <div class="d-flex">
@@ -195,7 +199,7 @@ export class MainPage extends LitElement {
             <button class="bg-icon text-white p-2 text-big border-10 float-end">Nuevo</button>
             </div>
             <div class="bg-light mt-3 h-100 border border-dark border-20 p-3" id="div-table">
-              
+              ${this.mostrarUsuarios(0)}
             </div>
           </div>
         </div>

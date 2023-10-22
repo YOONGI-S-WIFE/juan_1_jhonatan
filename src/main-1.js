@@ -389,6 +389,7 @@ getCampañaActiva(campañaId) {
     estadoInput.value=''
     campañaInput.value=''
 
+    this.mostrarUsuarios(1)
     this.requestUpdate();
     this.cerrarAgregarUsuario();
 
@@ -509,13 +510,14 @@ getCampañaActiva(campañaId) {
         <button class="bg-icon text-white border border-0 border-10 p-2" @click=${(e)=>this.abrirLlamarUsuario(usuarioEncontrado.id)}>Llamar</button>
       </div>
     </div>
+    ${console.log(usuarioEncontrado.estado)}
     ${usuarioEncontrado.estado==1  ? html `
     <div class="modal" id="llamarUsuarioModal-${usuarioEncontrado.id}">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">Llamando usuario</h5>
-            <button type="button" @click=${(e)=>this.cerrarLlamarUsuario()}>
+            <button type="button" @click=${(e)=>this.cerrarLlamarUsuario(usuarioEncontrado.id)}>
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -536,12 +538,12 @@ getCampañaActiva(campañaId) {
         </div>
       </div>
     </div>`: html`
-    <div class="modal" id="llamarUsuarioModal">
+    <div class="modal" id="llamarUsuarioModal-${usuarioEncontrado.id}">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Llamando usuario</h5>
-          <button type="button" @click=${(e)=>this.cerrarLlamarUsuario()}>
+          <button type="button" @click=${(e)=>this.cerrarLlamarUsuario(usuarioEncontrado.id)}>
             <span aria-hidden="true">&times;</span>
           </button>
         </div>

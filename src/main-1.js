@@ -223,8 +223,8 @@ getCampañaActiva(campañaId) {
       this.tablaFiltrada=html``
       this.tablaEquipos=html``
       this.hola= html`
-      <table class="w-100" style="border: 1px solid black">
-        <tr>
+      <table class="w-100 table table-hover" style="border: 1px solid black">
+        <tr class="thead-dark">
           <th class="">Id</th>
           <th class="">Nombre</th>
           <th class="">Numero de telefono</th>
@@ -238,10 +238,10 @@ getCampañaActiva(campañaId) {
             <td>${usuario.nombre}</td>
             <td>${usuario.numeroTel}</td>
             <td>${usuario.campaña}</td>
-            <td><button class="btn btn-primary" @click=${() => this.modalInfoUsuarios(usuario.id)}>Ver mas</button></td>
+            <td><button class="bg-icon text-white p-2 border-10" @click=${() => this.modalInfoUsuarios(usuario.id)}>Ver mas</button></td>
           </tr>
           <div class="modal" id="modalUsuario${usuario.id}">
-            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-dialog modal-dialog-centered bg-transparent" role="document">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">Información del Usuario</h5>
@@ -507,13 +507,13 @@ getCampañaActiva(campañaId) {
       <strong>campaña:</strong> <br>${usuarioEncontrado.campaña}<br>
       </p>
       <div class="d-flex aling-items-center justify-content-center">
-        <button class="bg-icon text-white border border-0 border-10 p-2" @click=${(e)=>this.abrirLlamarUsuario(usuarioEncontrado.id)}>Llamar</button>
+        <button class="bg-icon text-white p-2 border-10" @click=${(e)=>this.abrirLlamarUsuario(usuarioEncontrado.id)}>Llamar</button>
       </div>
     </div>
     ${console.log(usuarioEncontrado.estado)}
     ${usuarioEncontrado.estado==1  ? html `
     <div class="modal" id="llamarUsuarioModal-${usuarioEncontrado.id}">
-      <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-dialog modal-dialog-centered bg-transparent" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">Llamando usuario</h5>
@@ -531,7 +531,7 @@ getCampañaActiva(campañaId) {
                 <i class="fa-solid fa-volume-high float-end w-25 fa-5x mb-3"></i>
               </div>
               <div class="d-flex justify-content-center align-items-center mt-3" >
-                <button class="btn btn-primary" @click=${(e)=>this.agregarUsuarioLlamado(usuarioEncontrado.id)}>Finalizar llamada</buttton>
+                <button class="bg-icon text-white p-2 border-10" @click=${(e)=>this.agregarUsuarioLlamado(usuarioEncontrado.id)}>Finalizar llamada</buttton>
               </div>
             </div>
           </div>
@@ -539,7 +539,7 @@ getCampañaActiva(campañaId) {
       </div>
     </div>`: html`
     <div class="modal" id="llamarUsuarioModal-${usuarioEncontrado.id}">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-dialog-centered bg-transparent" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Llamando usuario</h5>
@@ -586,7 +586,7 @@ getCampañaActiva(campañaId) {
       
       if(campañaSeleccionada!=="0"){
         this.tablaFiltrada= html`
-        <table class="w-100" style="border: 1px solid black">
+        <table class="w-100 table table-hover" style="border: 1px solid black">
         <tr>
           <th class="">Id</th>
           <th class="">Nombre</th>
@@ -601,10 +601,10 @@ getCampañaActiva(campañaId) {
             <td>${usuario.nombre}</td>
             <td>${usuario.numeroTel}</td>
             <td>${usuario.campaña}</td>
-            <td><button class="btn btn-primary" @click=${() => this.modalInfoUsuarios(usuario.id)}>Ver mas</button></td>
+            <td><button class="bg-icon text-white p-2 border-10" @click=${() => this.modalInfoUsuarios(usuario.id)}>Ver mas</button></td>
           </tr>
           <div class="modal" id="modalUsuario${usuario.id}">
-            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-dialog modal-dialog-centered bg-transparent" role="document">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">Información del Usuario</h5>
@@ -654,7 +654,7 @@ getCampañaActiva(campañaId) {
       this.tablaFiltrada=html``
       this.tablaEquipos=html``
       this.tablaFiltradaCamapaña=html`
-      <table class="w-100" style="border: 1px solid black">
+      <table class="w-100 table table-hover" style="border: 1px solid black">
         <tr>
           <th class="">Id</th>
           <th class="">Nombre</th>
@@ -664,6 +664,7 @@ getCampañaActiva(campañaId) {
           <th class="">Estado</th>
           <th class="">Fecha inicio</th>
           <th class="">Fecha fin</th>
+          <th class="">Cambiar estado</th>
         </tr>
         ${this.objetoUsuarios.Camapañas.map(
           (campaña) => html`
@@ -676,8 +677,8 @@ getCampañaActiva(campañaId) {
             <td>${campaña.estado}</td>
             <td>${campaña.fechaDeInicio}</td>
             <td>${campaña.fechaDeFin}</td>
-            ${campaña.estado==1 ? html`<td><button class="btn btn-primary" @click=${() => this.cambiarEstadoADesactivado(campaña.id)}>Desactivar</button></td>`
-            :html`<td><button class="btn btn-primary" @click=${() => this.cambiarEstadoAActivo(campaña.id)}>Activar</button></td>` }
+            ${campaña.estado==1 ? html`<td><button class="bg-icon text-white p-2 border-10" @click=${() => this.cambiarEstadoADesactivado(campaña.id)}>Desactivar</button></td>`
+            :html`<td><button class="bg-icon text-white p-2 border-10" @click=${() => this.cambiarEstadoAActivo(campaña.id)}>Activar</button></td>` }
             
           </tr>
           `
@@ -694,7 +695,7 @@ getCampañaActiva(campañaId) {
       this.tablaFiltradaCamapaña=html``
       this.tablaFiltrada=html``
       this.tablaEquipos=html`
-      <table class="w-100" style="border: 1px solid black">
+      <table class="w-100 table table-hover" style="border: 1px solid black">
         <tr>
           <th class="">Id del equipo</th>
           <th class="">Id de la campaña</th>
@@ -795,7 +796,7 @@ getCampañaActiva(campañaId) {
               <button class="border-10 p-2 text-big border-1" @click=${(e)=>this.filtrarUsuPorCampaña(1)}>Filtrar</button>
               <button class="bg-icon text-white p-2 text-big border-10 float-end" @click=${(e)=>this.abrirAgregarUsuario()}>Nuevo</button>
               <div class="modal" id="agregarUsuarioModal">
-                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-dialog modal-dialog-centered bg-transparent" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title">Agregar nuevo usuario</h5>
@@ -845,7 +846,7 @@ getCampañaActiva(campañaId) {
                           </select>
                       </div>
                       <div class="d-flex justify-content-center aling-items-center mt-3">
-                        <button class="btn btn-primary" @click=${(e)=>this.agregarUsuario()}>Agregar</buttton>
+                        <button class="bg-icon text-white p-2 border-10" @click=${(e)=>this.agregarUsuario()}>Agregar</buttton>
                       </div>
                     </div>
                   </div>
@@ -861,7 +862,7 @@ getCampañaActiva(campañaId) {
             <div class="w-100">
               <button class="float-end m-3 bg-icon text-white p-2 border-10 border-1" @click=${(e)=>this.abrirAgregarCampaña()}>Nueva campaña</button>
                 <div class="modal" id="modalAgregarCamapaña">
-                  <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-dialog modal-dialog-centered bg-transparent" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h5 class="modal-title">Agregar nueva campaña</h5>
@@ -907,14 +908,14 @@ getCampañaActiva(campañaId) {
                         </div>
                       </div>
                       <div class="d-flex justify-content-center aling-items-center m-3">
-                        <button class="btn btn-primary" @click=${(e)=>this.agregarCampaña()}>Agregar</buttton>
+                        <button class="bg-icon text-white p-2 border-10" @click=${(e)=>this.agregarCampaña()}>Agregar</buttton>
                       </div>
                     </div>
                   </div>
                 </div>
               <button class="float-start m-3 bg-icon text-white p-2 border-10 border-1" @click=${(e)=>this.abrirAgregarEquipo()}>Nuevo equipo</button>
                 <div class="modal" id="modalAgregarEquipo">
-                  <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-dialog modal-dialog-centered bg-transparent" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h5 class="modal-title">Agregar nuevo equipo</h5>
@@ -961,7 +962,7 @@ getCampañaActiva(campañaId) {
                         </div>
                         </div>
                         <div class="d-flex justify-content-center aling-items-center m-3">
-                          <button class="btn btn-primary" @click=${(e)=>this.agregarEquipo()}>Agregar</buttton>
+                          <button class="bg-icon text-white p-2 border-10" @click=${(e)=>this.agregarEquipo()}>Agregar</buttton>
                         </div>
                       </div>
                     </div>

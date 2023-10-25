@@ -1,17 +1,18 @@
 import { css } from "lit-element";
 
 export default css `
-.gradient-background {
-    background: linear-gradient(to right, #007BFF, white);
+.background-darkgray {
+    background-color: #CCCCCC;
+    
 }
 .z-index-1{
     z-index: 1;
 }
 .bg-input{
-    background-color:#0091B8;
+    background-color:#87CEEB;
 }
 .bg-icon{
-    background-color:#00556C;
+    background-color:#333333;
 }
 .bg-pink{
     background-color:#FFF9FF;

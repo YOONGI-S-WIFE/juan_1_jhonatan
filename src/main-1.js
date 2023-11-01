@@ -134,6 +134,10 @@ export class MainPage extends LitElement {
 
   }
 
+  static get styles(){
+    return[loginStyle]
+}
+
 
   static get properties(){
     return{
@@ -722,9 +726,7 @@ getCampañaActiva(campañaId) {
     }
     return this.tablaEquipos
   }
-    static get styles(){
-        return[loginStyle]
-    }
+
   render() {
     return html`
     <style>

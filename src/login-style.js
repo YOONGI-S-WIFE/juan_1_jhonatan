@@ -5,23 +5,32 @@ export default css `
 .z-index-1{
     z-index: 1;
 }
+.w-15{
+  width:15%;
+}
+.bg-fondo{
+  background-color:#081821;
+}
 .bg-input{
-    background-color:#ffffff9a;
+    background-color:#2F9291;
+}
+.bg-inputregistro{
+  background-color:#ffffff9a;
 }
 .bg-icon{
-    background-color:#232222;
+    background-color:#062435;
 }
 
 .bg-icon1{
-    background-color:#353434d4;
+    background-color:#062435;
 }
 
 .bg-primary1 {
-    background-color: #353434d4; 
+    background-color: #20526D; 
   }
 
 .bg-color-secondary {
-    background-color: #9e9898a2; 
+    background-color: #2F9291; 
   }
 
   .bg-color-secondary1 {
@@ -29,15 +38,15 @@ export default css `
   }
 
   .bg-secondary {
-    background-color: #9e9898a2; 
+    background-color: #2F9291; 
   }
 
   .bg-secondary1 {
-    background-color: #9e9898a2; 
+    background-color: #0E2E40; 
   }
 
 .bg-color-dark {
-    background-color: #4b4a4ae7; 
+    background-color: #0E2E40; 
 }
 
 .placeholder-white::placeholder {

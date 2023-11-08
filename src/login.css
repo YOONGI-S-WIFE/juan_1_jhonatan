@@ -1,9 +1,7 @@
 .gradient-background {
-    background: linear-gradient(to right, #000000, rgb(184, 184, 184));
-    
+    background: linear-gradient(to right, #2d9291, rgb(184, 184, 184));
 }
 
-
 .bg-input{
-    background-color:#353434d4;
+    background-color:#0000004d;
 }

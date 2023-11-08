@@ -42,12 +42,12 @@ export class MyElement extends LitElement{
 
 
         if (username == null || username == undefined || username == '') {
-            this.mensaje='atencion... campo nombre vacio';
+            this.mensaje='El campo de Nombre esta vacio';
             this.mostrarError()
             return false;
         } 
         else if (password == null || password == undefined || password == '') {
-            this.mensaje='atencion... campo contraseña vacio';
+            this.mensaje='El campo de Contraseña esta vacio';
             this.mostrarError()
             return false;
         } 
@@ -90,21 +90,20 @@ export class MyElement extends LitElement{
         @import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css');
         @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
         .bg-custom-color {
-    background-color: #007BFF; /* Cambia #007BFF al color que desees */
+    background-color: #2F9291;
   }
         </style>
-    
         <div class="container position-relative">
-            <div class="position-absolute bottom-50 start-50 translate-middle z-index-1" ><i class="fas fa-users fa-5x bg-icon p-5 rounded-circle" style="color: #ffffff;"></i></div>
+            <div class="position-absolute bottom-50 start-50 translate-middle z-index-1" ><i class="fa-solid fa-user fa-bounce fa-5x bg-icon p-5 rounded-circle" style="color: #ffffff;"></i></div>
             <div class="container border border-0 border-20 px-5 py-5 bg-whiteTransparent position-relative w-50">
 
                 <div class="mb-3 mt-5 d-flex" >
                     <span class="input-group-text bg-icon"><i class="fas fa-user" style="color: #d1ccccb9;"></i></span>
-                    <input type="text" id="username" class="w-100 rounded form-control bg-input placeholder-#3e3c3c" placeholder="Usuario" .value=${this.usuario}></input>  
+                    <input type="text" id="username" class="w-100 rounded form-control bg-inputregistro placeholder-#3e3c3c" placeholder="Usuario" .value=${this.usuario}></input>  
                 </div>
                 <div class="mb-3 d-flex">
                     <span class="input-group-text bg-icon"><i class="fas fa-user-lock" style="color: #d1ccccb9;"></i></span>
-                    <input type="password" id="password" class="w-100 rounded form-control bg-input placeholder-#3e3c3c" placeholder="Password" .value=${this.contraseña}></input>
+                    <input type="password" id="password" class="w-100 rounded form-control bg-inputregistro placeholder-#3e3c3c" placeholder="Password" .value=${this.contraseña}></input>
                 </div>  
                 <div class="d-flex justify-content-between">
                     <div class="form-check">
@@ -120,7 +119,7 @@ export class MyElement extends LitElement{
                 ${this.mostrarError()}    
                 </div>                 
             </div> 
-                <button class="btn bg-whiteTransparent position-absolute start-50 translate-middle-x mt-1 w-25 bottom-rounded p-3 text-gray" @click=${(e)=>this.ingresarLogin()}><strong>LOGIN<strong></button>
+                <button class="btn bg-whiteTransparent position-absolute start-50 translate-middle-x mt-1 w-15 bottom-rounded p-3 text-gray" @click=${(e)=>this.ingresarLogin()}><strong>LOGIN<strong></button>
                 
         </div>
         `

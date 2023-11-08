@@ -1,7 +1,14 @@
 import { css } from "lit-element";
 
 export default css `
+<<<<<<< HEAD
 
+=======
+.background-darkgray {
+    background-color: #CCCCCC;
+    
+}
+>>>>>>> 5d35e71f06cc786ea8a756b617ed977d79c2ae89
 .z-index-1{
     z-index: 1;
 }
@@ -12,6 +19,7 @@ export default css `
   background-color:#081821;
 }
 .bg-input{
+<<<<<<< HEAD
     background-color:#2F9291;
 }
 .bg-inputregistro{
@@ -47,8 +55,16 @@ export default css `
 
 .bg-color-dark {
     background-color: #0E2E40; 
+=======
+    background-color:#87CEEB;
 }
-
+.bg-icon{
+    background-color:#333333;
+}
+.bg-pink{
+    background-color:#FFF9FF;
+>>>>>>> 5d35e71f06cc786ea8a756b617ed977d79c2ae89
+}
 .placeholder-white::placeholder {
     color: white;
 }
@@ -76,6 +92,17 @@ export default css `
     background-color: rgba(255,255,255,0.6)
 }
 
+<<<<<<< HEAD
+=======
+.bg-grayWhite{
+    background-color:#D6D7D9;
+}
+
+.text-blue{
+    color:#446D99;   
+}
+
+>>>>>>> 5d35e71f06cc786ea8a756b617ed977d79c2ae89
 .text-big{
     font-size:25px;
 }
@@ -83,6 +110,7 @@ export default css `
     font-size:50px;
 }
 
+<<<<<<< HEAD
 .num-small{
     font-size:25px;
 }
@@ -117,4 +145,10 @@ export default css `
     left:100px;
   }
 
+=======
+.shadow-inset{
+    border: 1px solid #ccc; 
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+>>>>>>> 5d35e71f06cc786ea8a756b617ed977d79c2ae89
 `

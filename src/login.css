@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 .gradient-background {
     background: linear-gradient(to right, #2d9291, rgb(184, 184, 184));
+=======
+.background-darkgray {
+    background-color: #CCCCCC;
+    
+>>>>>>> 5d35e71f06cc786ea8a756b617ed977d79c2ae89
 }
 
 .bg-input{

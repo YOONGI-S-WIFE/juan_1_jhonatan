@@ -9,6 +9,7 @@ export class MyElement extends LitElement{
         super();
         this.saludo="Inicio de sesión";
         this.mensaje="";
+<<<<<<< HEAD:src/login-element.js
         this.usuario = ""
 
     const storedUsername = localStorage.getItem("Usuario");
@@ -20,7 +21,12 @@ export class MyElement extends LitElement{
     }
 
        
+=======
+        this.recarga()
+>>>>>>> 5d35e71f06cc786ea8a756b617ed977d79c2ae89:src/login-template.js
     }
+
+
     static get properties(){
         return{
             saludo:{
@@ -32,6 +38,7 @@ export class MyElement extends LitElement{
         }
     }
 
+<<<<<<< HEAD:src/login-element.js
     ingresarLogin(){
         let username = this.shadowRoot.querySelector('#username').value;
         let password = this.shadowRoot.querySelector('#password').value;
@@ -53,6 +60,12 @@ export class MyElement extends LitElement{
         } 
         else if (check) {
             const mainPage = document.createElement('main-element1');
+=======
+    recarga(){
+        const credencialesGuardadas = JSON.parse(localStorage.getItem('credenciales'));
+        if(credencialesGuardadas!==null){
+            const mainPage = document.createElement('main-1');
+>>>>>>> 5d35e71f06cc786ea8a756b617ed977d79c2ae89:src/login-template.js
             document.body.innerHTML = ''; 
             document.body.appendChild(mainPage);
              localStorage.setItem("Usuario", username)
@@ -65,19 +78,65 @@ export class MyElement extends LitElement{
             document.body.appendChild(mainPage);
             
         }
+    }
+
+    ingresarLogin(){
+        let username = this.shadowRoot.querySelector('#username').value;
+        let password = this.shadowRoot.querySelector('#password').value;
+        let remeber = this.shadowRoot.querySelector('#remember').checked;  
+
+        if (username == null || username == undefined || username == '') {
+            this.mensaje='Atención...campo nombre vacio';
+            this.mostrarError()
+            return false;
+        } 
+        else if (password == null || password == undefined || password == '') {
+            this.mensaje='Atención...campo contraseña vacio';
+            this.mostrarError()
+            return false;
+        }else{
+
+            if(remeber){
+                let credenciales={
+                    nombre:username, 
+                    contraseña:password}
+
+                localStorage.setItem('credenciales',JSON.stringify(credenciales)); 
+                const credencialesGuardadas = JSON.parse(localStorage.getItem('credenciales'));
+
+                let nombreLocal = credencialesGuardadas.nombre;
+                let passwordLocal = credencialesGuardadas.contraseña;
+
+                console.log(nombreLocal, passwordLocal); 
+  
+                console.log(credencialesGuardadas)          
+            
+                const mainPage = document.createElement('main-1');
+                document.body.innerHTML = ''; 
+                document.body.appendChild(mainPage);
+            }else{
+                const mainPage = document.createElement('main-1');
+                document.body.innerHTML = ''; 
+                document.body.appendChild(mainPage);
+            }
+
+        }
         
     }
 
+<<<<<<< HEAD:src/login-element.js
     mostrarUsuario(){
         if (Usuario1 && Contraseña1) {
             this.usuario = Usuario1;
             this.contraseña = Contraseña1;
         }
     }
+=======
+>>>>>>> 5d35e71f06cc786ea8a756b617ed977d79c2ae89:src/login-template.js
 
     
     mostrarError(){
-        return html `<div>${this.mensaje}</div>`
+        return html `<div class="position-absolute bottom-0 start-50 translate-middle z-index-1">${this.mensaje}</div>`
     }
 
     static get styles(){
